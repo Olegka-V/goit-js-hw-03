@@ -1,16 +1,15 @@
-function getElementWidth(content, padding, border) {
-    // 1. Всі елементи цифрами
-    const parseContent = Number.parseFloat(content);
-    const parsePadding = Number.parseFloat(padding);
-    const parseBorder =  Number.parseFloat(border);
-    // 2. Перемноження аргументів
-    const result = parseContent + parsePadding * 2 + parseBorder * 2;
-    // 3. Повернути значення
-    return result;
-
-    
+function filterArray(numbers, value) {
+    let arr = [];
+    for (let i = 0; i < numbers.length; i++) {
+       if (numbers[i] > value) {
+           arr.push(numbers[i]);
+       }
+    }
+    return arr;
 }
 
-console.log(getElementWidth("50px", "8px", "4px")); // 74
-console.log(getElementWidth("60px", "12px", "8.5px")); // 101
-console.log(getElementWidth("200px", "0px", "0px")); // 200
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
